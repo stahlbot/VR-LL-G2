@@ -25,5 +25,4 @@ private:
 	// VR Camera
 	UPROPERTY(EditAnywhere, Category = "MC")
 	UCameraComponent* VRCamera;
-	
 };

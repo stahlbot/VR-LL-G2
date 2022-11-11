@@ -14,6 +14,5 @@ UCLASS()
 class ROBCOG_API ARobCoGGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
 
 };
