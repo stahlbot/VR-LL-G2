@@ -1,0 +1,62 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+	 google.charts.load("current", {packages:["timeline"]});
+	 google.charts.setOnLoadCallback(drawChart);
+	 function drawChart() {
+		 var container = document.getElementById('event_tl');
+		 var chart = new google.visualization.Timeline(container);
+		 var dataTable = new google.visualization.DataTable();
+
+ 		 dataTable.addColumn({ type: 'string', id: 'context' });
+		 dataTable.addColumn({ type: 'string', id: 'event_id' });
+		 dataTable.addColumn({ type: 'string', role: 'tooltip', 'p': {'html': true} });
+		 dataTable.addColumn({ type: 'number', id: 'start' });
+		 dataTable.addColumn({ type: 'number', id: 'end' });
+
+		 dataTable.addRows([
+
+		 [ 'MMM_Task' , 'MMM_G26_T' , emptyFunc(), 0.000 , 13094.099 ],
+		 [ 'Contact - 2167320733' , '9A8ef7OVHU2ivGcpfXWMjQ' , createTooltipHTMLContent(0.476, 0.907, 'O1','GenesisLeftHand','Id','AuP-SAqPu02Vrgu6df6Txg','O2','IAILabFloor','Id','9jrJzTZvSkqUjwIvPEavYA','Id','9A8ef7OVHU2ivGcpfXWMjQ'), 476.154 , 907.067 ],
+		 [ 'Contact - 2171734090' , 'Ft5kMLKx60iuLiiru2kFwQ' , createTooltipHTMLContent(0.476, 1.018, 'O1','GenesisRightHand','Id','BENamAV8rkibLIBc8asHhQ','O2','IAILabFloor','Id','9jrJzTZvSkqUjwIvPEavYA','Id','Ft5kMLKx60iuLiiru2kFwQ'), 476.154 , 1017.507 ],
+		 [ 'Contact - 2246443560' , 'dPAWks7o6UyVMonbHKeA4g' , createTooltipHTMLContent(6.940, 7.407, 'O1','GenesisRightHand','Id','BENamAV8rkibLIBc8asHhQ','O2','IAIIslandArea','Id','XYIgNjEFVU6q-71AupPIzQ','Id','dPAWks7o6UyVMonbHKeA4g'), 6940.023 , 7406.917 ],
+		 [ 'Contact - 2232857176' , 'VNavCLjHS06lOEOOWyjDHg' , createTooltipHTMLContent(6.918, 7.651, 'O1','GenesisRightHand','Id','BENamAV8rkibLIBc8asHhQ','O2','JaMilch','Id','_pI9DAGyIUGSpUuDn8rEHQ','Id','VNavCLjHS06lOEOOWyjDHg'), 6917.599 , 7651.025 ],
+		 [ 'Contact - 2251607719' , 'w3-Xs2xxU0aH1Sj1WFSZrA' , createTooltipHTMLContent(0.512, 9.962, 'O1','JaMilch','Id','_pI9DAGyIUGSpUuDn8rEHQ','O2','IAIIslandArea','Id','XYIgNjEFVU6q-71AupPIzQ','Id','w3-Xs2xxU0aH1Sj1WFSZrA'), 511.947 , 9961.789 ],
+		 [ 'SupportedBy - 2251607719' , 'LGIlHsbGFkKi1Y1h7ZGxow' , createTooltipHTMLContent(0.555, 9.962, 'SupportedIndividual','JaMilch','Id','_pI9DAGyIUGSpUuDn8rEHQ','SupportingIndividual','IAIIslandArea','Id','XYIgNjEFVU6q-71AupPIzQ','Id','LGIlHsbGFkKi1Y1h7ZGxow'), 555.487 , 9961.789 ],
+		 [ 'Contact - 2232857176' , 'V2yXqgq6aUiF685Kypemqg' , createTooltipHTMLContent(9.895, 10.273, 'O1','GenesisRightHand','Id','BENamAV8rkibLIBc8asHhQ','O2','JaMilch','Id','_pI9DAGyIUGSpUuDn8rEHQ','Id','V2yXqgq6aUiF685Kypemqg'), 9895.282 , 10273.262 ],
+		 [ 'Contact - 2176811701' , 'gdG4ovGITEKthMW6VZgxtg' , createTooltipHTMLContent(10.473, 13.094, 'O1','JaMilch','Id','_pI9DAGyIUGSpUuDn8rEHQ','O2','IAILabFloor','Id','9jrJzTZvSkqUjwIvPEavYA','Id','gdG4ovGITEKthMW6VZgxtg'), 10472.583 , 13094.099 ],
+		 [ 'SupportedBy - 2176811701' , 'Afe1cm_jKUyF6cUb2SZb2A' , createTooltipHTMLContent(11.029, 13.094, 'SupportedIndividual','JaMilch','Id','_pI9DAGyIUGSpUuDn8rEHQ','SupportingIndividual','IAILabFloor','Id','9jrJzTZvSkqUjwIvPEavYA','Id','Afe1cm_jKUyF6cUb2SZb2A'), 11028.586 , 13094.099 ],
+
+		]);
+
+		 var options = {
+			 timeline: {showRowLabels: true, colorByRowLabel: true},
+			 avoidOverlappingGridLines: false,
+			 tooltip: {isHtml: true}
+		 };
+		 chart.draw(dataTable, options);
+	 }
+	 function createTooltipHTMLContent(Start, End, Key1, Val1, Key2, Val2, Key3, Val3, Key4, Val4, Key5, Val5){
+		 return '<center>' +
+			 '<font size="3">' +
+			 '<p><strong>Duration:</strong> ' + (End - Start).toFixed(3) + 's</p>' +
+			 '<p>' + Start + 's - ' + End + 's</p>' +
+			 '<hr/>' +
+			 '</font>' +
+			 '<font size="2">' +
+			 '<p><strong>' + Key1 + ':</strong> ' + Val1 + '</p>' +
+			 '<p><strong>' + Key2 + ':</strong> ' + Val2 + '</p>' +
+			 '<hr/>' +
+			 '<p><strong>' + Key3 + ':</strong> ' + Val3 + '</p>' +
+			 '<p><strong>' + Key4 + ':</strong> ' + Val4 + '</p>' +
+			 '<hr/>' +
+			 '</font>' +
+			 '<font size="1">' +
+			 '<p><strong>' + Key5 + ':</strong> ' + Val5 + '</p>' +
+			 '</font>' +
+			 '</center>' 
+	 } 
+
+	 function emptyFunc() { return } 
+</script>
+<div id="event_tl" style="height:900px;"></div>
